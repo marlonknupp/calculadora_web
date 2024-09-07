@@ -1,0 +1,35 @@
+﻿@model CalculadoraWeb.Models.Calculadora
+
+@{
+    ViewData["Title"] = "Calculadora";
+}
+
+<h2>Calculadora Simples</h2>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label>Número 1:</label>
+        <input type="number" asp-for="Num1" step="any" />
+    </div>
+    <div>
+        <label>Número 2:</label>
+        <input type="number" asp-for="Num2" step="any" />
+    </div>
+    <div>
+        <label>Operação:</label>
+        <select asp-for="Operacao">
+            <option value="Adicao">Adição</option>
+            <option value="Subtracao">Subtração</option>
+            <option value="Multiplicacao">Multiplicação</option>
+            <option value="Divisao">Divisão</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Calcular" />
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <h3>Resultado: @Model.Resultado</h3>
+}
